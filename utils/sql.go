@@ -8,7 +8,7 @@ import (
 
 	"github.com/kisielk/sqlstruct"
 
-	"github.com/zhgqiang/common/data"
+	"github.com/zhgqiang/commongo/data"
 )
 
 // GetDataFromSQLQuery is a util function that, given a properly intialized sql.DB

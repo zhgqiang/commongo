@@ -7,7 +7,7 @@ import (
 
 	"github.com/influxdata/influxdb/client/v2"
 
-	"github.com/zhgqiang/common/data"
+	"github.com/zhgqiang/commongo/data"
 )
 
 // InfluxDB is 数据库配置.

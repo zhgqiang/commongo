@@ -9,7 +9,7 @@ import (
 	proto "github.com/huin/mqtt"
 	"github.com/jeffallen/mqtt"
 
-	"github.com/zhgqiang/common/mq"
+	"github.com/zhgqiang/commongo/mq"
 )
 
 // EmqttWriter is 配置日志输出位置为消息队列

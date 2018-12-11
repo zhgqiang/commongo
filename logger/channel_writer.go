@@ -3,7 +3,7 @@ package logger
 import (
 	"errors"
 
-	"github.com/zhgqiang/common/data"
+	"github.com/zhgqiang/commongo/data"
 )
 
 // ChannelWriter is 配置日志输出位置为管道中

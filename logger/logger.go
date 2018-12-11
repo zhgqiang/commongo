@@ -11,8 +11,8 @@ import (
 	"github.com/rifflock/lfshook"
 	"github.com/sirupsen/logrus"
 
-	"github.com/zhgqiang/common/data"
-	"github.com/zhgqiang/common/mq"
+	"github.com/zhgqiang/commongo/data"
+	"github.com/zhgqiang/commongo/mq"
 )
 
 const (

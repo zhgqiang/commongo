@@ -15,6 +15,7 @@ type MongoDB struct {
 	Username string `json:"username" toml:"username" description:"数据库访问用户名"`
 	Password string `json:"password" toml:"password" description:"数据库访问密码"`
 	Database string `json:"database" toml:"database" description:"数据库名称"`
+	Timeout  int    `json:"timeout" toml:"timeout" description:"上下文超时时间,单位秒"`
 }
 
 // NewConn is 创建数据库连接.
@@ -23,7 +24,7 @@ func (p *MongoDB) NewConn() (*mongo.Client, error) {
 	if err != nil {
 		return nil, err
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), p.Timeout*time.Second)
 	defer cancel()
 	err = client.Connect(ctx)
 	if err != nil {

@@ -24,7 +24,7 @@ func (p *MongoDB) NewConn() (*mongo.Client, error) {
 	if err != nil {
 		return nil, err
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), p.Timeout*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(p.Timeout)*time.Second)
 	defer cancel()
 	err = client.Connect(ctx)
 	if err != nil {

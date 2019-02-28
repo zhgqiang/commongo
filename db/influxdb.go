@@ -12,8 +12,7 @@ import (
 
 // InfluxDB is 数据库配置.
 type InfluxDB struct {
-	Host     string `json:"host" toml:"host" description:"数据库地址"`
-	Port     int    `json:"port" toml:"port" description:"数据库端口"`
+	Addr     string `json:"addr" toml:"addr" description:"数据库地址"`
 	Username string `json:"username" toml:"username" description:"数据库访问用户名"`
 	Password string `json:"password" toml:"password" description:"数据库访问密码"`
 	Database string `json:"database" toml:"database" description:"数据库名"`
@@ -25,7 +24,7 @@ type InfluxDB struct {
 func (p *InfluxDB) NewClient() (c client.Client, err error) {
 	// Create a new HTTPClient
 	return client.NewHTTPClient(client.HTTPConfig{
-		Addr:     fmt.Sprintf("http://%s:%d", p.Host, p.Port),
+		Addr:     p.Addr,
 		Username: p.Username,
 		Password: p.Password,
 	})
@@ -34,7 +33,7 @@ func (p *InfluxDB) NewClient() (c client.Client, err error) {
 // Init is 初始化数据库连接.
 func (p *InfluxDB) Init() error {
 	cli, err := client.NewHTTPClient(client.HTTPConfig{
-		Addr:     fmt.Sprintf("http://%s:%d", p.Host, p.Port),
+		Addr:     p.Addr,
 		Username: p.Username,
 		Password: p.Password,
 	})
